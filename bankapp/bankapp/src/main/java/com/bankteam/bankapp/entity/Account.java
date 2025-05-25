@@ -1,9 +1,13 @@
 package com.bankteam.bankapp.entity;
 
-import jakarta.persistence.*;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 
 import java.util.List;
 
@@ -25,5 +29,6 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToMany(mappedBy = "account")
     private List<Transaction> transactions;
 }
